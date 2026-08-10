@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int     @id @default(autoincrement())
+  manager_id        Int?
+  username          String  @unique(map: "username") @db.VarChar(255)
+  password          String  @db.VarChar(255)
+  isActive          Int?    @default(0) @db.TinyInt
+  passwordRequest   String? @db.VarChar(255)
+  isPasswordRequest Int?    @default(0) @db.TinyInt
+
+  @@map("users")
+}
+
+model alembic_version {
+  version_num String @id @db.VarChar(32)
+}
+
+model cells {
+  id         Int     @id @default(autoincrement())
+  manager_id Int
+  user_id    Int?
+  sheet_id   Int
+  field_id   Int
+  value      String? @db.VarChar(255)
+  uuid       String? @db.VarChar(255)
+  created_at String? @db.VarChar(255)
+
+  @@index([manager_id], map: "manager_id")
+  @@index([field_id], map: "cell_id")
+  @@index([sheet_id], map: "sheet_id")
+  @@index([user_id], map: "workcells_ibfk_4")
+}
+
+model departments {
+  id         Int    @id @default(autoincrement())
+  manager_id Int
+  name       String @unique(map: "name") @db.VarChar(255)
+}
+
+model sharesheets {
+  id         Int     @id @default(autoincrement())
+  manager_id Int
+  sheet_id   Int
+  user_id    Int
+  created_at String? @db.VarChar(255)
+
+  @@index([manager_id], map: "manager_id")
+  @@index([sheet_id], map: "sheet_id")
+  @@index([user_id], map: "user_id")
+}
+
+model sheets {
+  id           Int     @id @default(autoincrement())
+  manager_id   Int
+  sheet_number Int?
+  sheet_name   String  @unique(map: "sheet_name") @db.VarChar(255)
+  created_at   String? @db.VarChar(255)
+
+  @@index([manager_id], map: "manager_id")
+}
+
+model fields {
+  id           Int     @id @default(autoincrement())
+  manager_id   Int
+  sheet_id     Int
+  sheet_type   Int?
+  cell_title   String? @db.VarChar(255)
+  cell_content String? @default("150") @db.VarChar(255)
+  data_format  String? @default("text") @db.VarChar(50)
+  created_at   String? @db.VarChar(255)
+
+  @@index([sheet_id], map: "cells_ibfk_1")
+  @@index([manager_id], map: "manager_id")
+}
+
+model sheet_view {
+  id         Int    @id @default(autoincrement())
+  manager_id String @db.VarChar(255)
+  view_type  Int?   @default(0) @db.MediumInt
+}
+
+model apikey {
+  id          Int      @id @default(autoincrement())
+  customer_id Int      @unique
+  api_key     String   @db.VarChar(255)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  @@map("apikey")
+}

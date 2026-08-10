@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  /* Sophisticated Yellow Color Scheme */
+  --background: #fffbf0;
+  --foreground: #1a1a1a;
+  
+  /* Primary Yellow Palette */
+  --primary-yellow: #f2c812;
+  --primary-yellow-light: #ffd93d;
+  --primary-yellow-lighter: #ffe380;
+  --primary-yellow-dark: #d4a600;
+  --primary-yellow-darker: #b88e00;
+  
+  /* Accent Colors */
+  --accent-amber: #ffa726;
+  --accent-gold: #e5b800;
+  --accent-honey: #ffb94d;
+  
+  /* Neutral Colors with warm tones */
+  --neutral-50: #fefdfb;
+  --neutral-100: #faf8f2;
+  --neutral-200: #f5f2e8;
+  --neutral-300: #e8e4d9;
+  --neutral-400: #c9c5b8;
+  --neutral-500: #999688;
+  --neutral-600: #6b6860;
+  --neutral-700: #4d4a43;
+  --neutral-800: #353330;
+  --neutral-900: #1f1e1c;
+  
+  /* Semantic Colors with yellow tints */
+  --success: #34c759;
+  --success-bg: #e8f8ed;
+  --warning: #ff9500;
+  --warning-bg: #fff4e5;
+  --error: #ff3b30;
+  --error-bg: #ffebea;
+  --info: #007aff;
+  --info-bg: #e5f2ff;
+  
+  /* Component Colors */
+  --card-bg: #ffffff;
+  --card-border: #f0ead8;
+  --sidebar-bg: #fff2aa;
+  --header-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #e8e4d9;
+  --button-primary: var(--primary-yellow);
+  --button-primary-hover: var(--primary-yellow-dark);
+  --shadow-sm: 0 1px 2px 0 rgba(242, 200, 18, 0.05);
+  --shadow: 0 4px 6px -1px rgba(242, 200, 18, 0.08);
+  --shadow-md: 0 10px 15px -3px rgba(242, 200, 18, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(242, 200, 18, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1812;
+    --foreground: #faf8f2;
+    --card-bg: #252218;
+    --sidebar-bg: #1f1c15;
+    --header-bg: #252218;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+#root,
+#__next {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Custom Scrollbar with Yellow theme */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-400);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-yellow);
+}

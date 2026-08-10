@@ -1,0 +1,11 @@
+# Database Configuration
+DATABASE_URL="mysql://root:@localhost:3306/sharecells_prod"
+
+# JWT Secret (change this to a secure random string in production)
+JWT_SECRET="your-super-secret-jwt-key-change-this-in-production"
+
+# Next.js
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+PULSEPOINT_PROJECT_ID=19
+PULSEPOINT_API_USERNAME="admin"
+PULSEPOINT_API_PASSWORD="admin"
