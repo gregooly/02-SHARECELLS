@@ -6,6 +6,6 @@ JWT_SECRET="your-super-secret-jwt-key-change-this-in-production"
 
 # Next.js
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
-PULSEPOINT_PROJECT_ID=19
+PULSEPOINT_PROJECT_ID=18
 PULSEPOINT_API_USERNAME="admin"
 PULSEPOINT_API_PASSWORD="admin"
